@@ -16,7 +16,7 @@ var scout = ["Scout", "6243", "74750", 5];
 var Employee = function(employName, employNum, employSalary, employReview) {
   this.employName = employName;
   this.employNum = employNum;
-  this.employSalary = parseInt(employSalary);//salary is a string, change to number to make it easier below
+  this.employSalary = parseInt(employSalary); //salary is a string, change to number to make it easier below
   this.employReview = employReview;
 };
 
@@ -49,33 +49,49 @@ var employees = [employee1, employee2, employee3, employee4];
 
     */
 
+//Originally submitted function only using if/else statements, but realized after submitting there was an error in the calculations.  Figured out
+//that switch + if statement would be better and produce right numbers.
 var calcSTI = function(employee) {
   var bonusPercent;
-  if (employee.employReview === 2) {
-    bonusPercent = 0;
-  } else if (employee.employReview === 3) {
-    bonusPercent = 4;
-  } else if (employee.employReview === 5) {
-    bonusPercent = 10;
-  } else if (employee.employNum.length === 4) {
+
+  switch (employee.employReview) {
+    case 2:
+      bonusPercent = 2;
+      break;
+    case 3:
+      bonusPercent = 4;
+      break;
+    case 4:
+      bonusPercent = 6;
+      break;
+    case 5:
+      bonusPercent = 10;
+      break;
+    default:
+      bonusPercent = 0;
+  };
+
+  if (employee.employNum.length === 4) {
     bonusPercent += 5;
-  } else if (employee.employSalary > 65000) {
-    bonusPercent -= 1;
-  } else if (bonusPercent > 13) {
+  };
+  if (employee.employSalary > 65000) {
+    bonusPercent--;
+  };
+  if (bonusPercent > 13) {
     bonusPercent = 13;
   };
 
   var sti = {
     name: employee.employName,
     sti: bonusPercent,
-    totalcomp: employee.employSalary + Math.round(employee.employSalary * bonusPercent / 100),//math.round to round the value of employSalary * bonusPercent/100(to make decimal)
+    totalcomp: employee.employSalary + Math.round(employee.employSalary * bonusPercent / 100), //math.round to round the value of employSalary * bonusPercent/100(to make decimal)
     totalbonus: Math.round(employee.employSalary * bonusPercent / 100)
-  }
+  };
   return sti;
-}
+};
 
 //5. Iterate over the employees array and input each index of the array to your function.
 //console.log the results of each iteration.*/
 for (var i = 0; i < employees.length; i++) {
   console.log(calcSTI(employees[i]));
-}
+};
