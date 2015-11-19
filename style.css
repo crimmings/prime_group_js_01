@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+  height: 100%;
+  
+}
+
+th {
+  height: 50px;
+  text-align: left;
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+}
+
+tr {
+  border: 2px solid green;
+}
+
+td {
+  border: 1px solid green;
+  color: blue;
+  font-size: 18px;
+  padding: 10px;
+}

@@ -95,3 +95,18 @@ var calcSTI = function(employee) {
 for (var i = 0; i < employees.length; i++) {
   console.log(calcSTI(employees[i]));
 };
+
+var theData = {employees: [{employName: "Atticus", employNum: "2405", employSalary: "47000", employReview: 3},
+                    {employName: "Jem", employNum: "62347", employSalary: "63500", employReview: 4},
+                    {employName: "Boo", employNum: "11435", employSalary: "54000", employReview: 3},
+                    {employName: "Scout", employNum: "6243", employSalary: "74750", employReview: 5}]
+                  };
+
+var theTemplateScript = $('#employees').html();
+
+var theTemplate = Handlebars.compile(theTemplateScript);
+
+$(document).ready(function(){
+$(document.body).append(theTemplate(theData));
+
+});

@@ -3,14 +3,31 @@
     <meta charset="utf-8">
     <title>Peer Group Project 1</title>
     <meta name="description" content="Webpage">
-    
-    <link rel="stylesheet" href="">
-    
+    <link rel="stylesheet" href="style.css">
   </head>
-  
-  <body> 
 
-    <script src="solo_01.js"></script>
+  <body>
+    <table class ="employees">
+
+      <script id="employees" type="text/x-handlebars-template">
+          {{#employees}}
+        <tr>
+          <td>{{ employName }}</td>
+          <td>{{employNum}}</td>
+          <td>{{employSalary}}</td>
+          <td>{{employReview}}</td>
+        </tr>
+
+        {{/employees}}
+
+      </script>
+</table>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js"></script>
+<script src="solo_01.js"></script>
   </body>
 
 
